@@ -1,7 +1,9 @@
-package java1;
+package Execicios;
+
 import java.util.Scanner;
 //Faça um programa que entre com três números e coloque em ordem crescente.
-public class java2 {
+
+public class javaCondicionalIF2 {
 	
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
@@ -38,5 +40,6 @@ public class java2 {
 			med =n3;
 		
 		System.out.println("\n"+menor+" "+med+" "+maior);
+
+		}
 	}
-}

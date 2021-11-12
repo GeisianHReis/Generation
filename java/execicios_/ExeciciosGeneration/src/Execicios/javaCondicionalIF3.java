@@ -1,14 +1,15 @@
-package java1;
+package Execicios;
+
 import java.util.Scanner;
 
-	/*
- 	Faça um programa em que permita a entrada de um número qualquer e exiba se este
-	número é par ou ímpar. Se for par exiba também a raiz quadrada do mesmo; se for
-	ímpar exiba o número elevado ao quadrado.
-	*/
+/*
+	Faça um programa em que permita a entrada de um número qualquer e exiba se este
+número é par ou ímpar. Se for par exiba também a raiz quadrada do mesmo; se for
+ímpar exiba o número elevado ao quadrado.
+*/
 
-public class java4 {
-
+public class javaCondicionalIF3 {
+	
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
 		
@@ -32,3 +33,4 @@ public class java4 {
 	}
 
 }
+
