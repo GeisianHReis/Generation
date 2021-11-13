@@ -3,16 +3,13 @@ package ExeciciosPOO1;
 public class Loja {
 
 	public static void main(String[] args) {
-		Cliente cliente1 = new Cliente();
-		Cliente cliente2 = new Cliente();
-		cliente2.nome = ("João");
-		cliente2.dados();
-		cliente1.cpf = ("99999999999999");
-		cliente1.cel = ("1111111111");
-		cliente1.liberarCredito();
-		cliente1.comprar();
-		cliente1.comprar();
-		cliente1.dados();
+		Cliente c1 = new Cliente("João","8746123875623","000000000000","haifdif@gmail.com",2);
+		Cliente c2 = new Cliente("","",null,null,1);
+		c1.liberarCredito();
+		c1.comprar();
+		c1.comprar();
+		c1.dados();
+		c2.dados();
 			
 
 	}

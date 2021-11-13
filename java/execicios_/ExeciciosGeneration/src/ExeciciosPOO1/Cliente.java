@@ -7,12 +7,70 @@ esta classe, em seguida crie um objeto cliente, defina as instancias deste
 objeto e apresente as informações deste objeto no console.
 */
 	public class Cliente {
-	public String nome;
-	public String cpf,cel;
-	public String email;
-	public int qntCompra=0;
-	public boolean credito;
+	private String nome;
+	private String cpf,cel;
+	private String email;
+	private int qntCompra=0;
+	private boolean credito;
 	
+
+	public Cliente(String m, String cpf, String cel, String email, int qnt)
+	{
+		this.setNome(m);
+		this.setCpf(cpf);
+		this.setCel(cel);
+		this.setEmail(email);
+		this.setQntCompra(qnt);
+	}
+	
+	public String getNome() {
+		return this.nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return this.cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getCel() {
+		return this.cel;
+	}
+
+	public void setCel(String cel) {
+		this.cel = cel;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getQntCompra() {
+		return this.qntCompra;
+	}
+
+	public void setQntCompra(int qntCompra) {
+		this.qntCompra = qntCompra;
+	}
+
+	public boolean getCredito() {
+		return this.credito;
+	}
+
+	public void setCredito(boolean credito) {
+		this.credito = credito;
+	}
+
 	private static String formato(Object cpf) {
     MaskFormatter formatoCPF;
     try {
@@ -29,21 +87,22 @@ objeto e apresente as informações deste objeto no console.
 	
 	void dados()
 	{
-		System.out.println("Cliente: "+nome+"\nCPF: "+formato(cpf)+"\nE-mail: "+email+"\nCelular: "+cel+"\nO cliente já comprou: "+qntCompra+
-				" item(ns)\nEle tem credito na loja? "+credito);
+		System.out.println("Cliente: "+this.getNome()+"\nCPF: "+formato(this.getCpf())+"\nE-mail: "+this.getEmail()+"\nCelular: "+
+				this.getCel()+"\nO cliente já comprou: "+this.getQntCompra()+
+				" item(ns)\nEle tem credito na loja? "+this.getCredito());
 		System.out.println("\n\n**********************************\n\n");
 	}
 	void comprar()
 	{	
-		qntCompra++;
+		this.qntCompra++;
 	}
 	void liberarCredito()
 	{
-		credito = true;
+		this.credito = true;
 	}
 	void tirarCredito()
 	{
-		credito = false;
+		this.credito = false;
 	}
 	
 	
