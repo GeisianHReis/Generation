@@ -8,19 +8,46 @@ objeto e apresente as informações deste objeto no console.
 */
 	public class Cliente {
 	private String nome;
-	private String cpf,cel;
+	private String cpf;
+	private String cel;
 	private String email;
 	private int qntCompra=0;
 	private boolean credito;
 	
 
-	public Cliente(String m, String cpf, String cel, String email, int qnt)
+	public Cliente(String nome, String cpf, String cel, String email, int qnt)
 	{
-		this.setNome(m);
+		this.setNome(nome);
 		this.setCpf(cpf);
 		this.setCel(cel);
 		this.setEmail(email);
 		this.setQntCompra(qnt);
+	}
+	
+	private static String formatoCPF(String cpf) {
+	    MaskFormatter formatoCPF;
+	    try {
+	        formatoCPF = new MaskFormatter("###.###.###-##");
+	        formatoCPF.setValueContainsLiteralCharacters(false);
+	        
+	        return formatoCPF.valueToString(cpf);
+	        
+	        
+	        } catch (ParseException e) {
+	            throw new RuntimeException(e);
+	        }
+	}
+	
+	private static String formatoCel(String cel) {
+		MaskFormatter formatoCel;
+		try {
+			formatoCel = new MaskFormatter("(##)#####-####");
+			formatoCel.setValueContainsLiteralCharacters(false);
+			
+			return formatoCel.valueToString(cel);
+		}catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	public String getNome() {
@@ -32,6 +59,7 @@ objeto e apresente as informações deste objeto no console.
 	}
 
 	public String getCpf() {
+		this.cpf = formatoCPF(this.cpf);
 		return this.cpf;
 	}
 
@@ -40,6 +68,7 @@ objeto e apresente as informações deste objeto no console.
 	}
 
 	public String getCel() {
+		this.cel = formatoCel(this.cel);
 		return this.cel;
 	}
 
@@ -70,26 +99,15 @@ objeto e apresente as informações deste objeto no console.
 	public void setCredito(boolean credito) {
 		this.credito = credito;
 	}
-
-	private static String formato(Object cpf) {
-    MaskFormatter formatoCPF;
-    try {
-        formatoCPF = new MaskFormatter("###.###.###-##");
-        formatoCPF.setValueContainsLiteralCharacters(false);
-        
-        return formatoCPF.valueToString(cpf);
-        
-        
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-    }
 	
 	void dados()
 	{
-		System.out.println("Cliente: "+this.getNome()+"\nCPF: "+formato(this.getCpf())+"\nE-mail: "+this.getEmail()+"\nCelular: "+
-				this.getCel()+"\nO cliente já comprou: "+this.getQntCompra()+
-				" item(ns)\nEle tem credito na loja? "+this.getCredito());
+		System.out.println("Cliente: "+this.getNome());
+		System.out.println("CPF: "+this.getCpf());
+		System.out.println("Celular: "+this.getCel());
+		System.out.println("E-mail: "+this.getEmail());
+		System.out.println("O clinte já comprou: "+this.getQntCompra()+" intem(ns)");
+		System.out.println("Cliente tem credito: "+this.getCredito());
 		System.out.println("\n\n**********************************\n\n");
 	}
 	void comprar()

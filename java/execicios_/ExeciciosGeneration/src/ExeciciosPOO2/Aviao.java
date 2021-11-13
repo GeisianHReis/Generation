@@ -6,27 +6,54 @@ package ExeciciosPOO2;
  */
 
 public class Aviao {
-	public String modelo,estado;
-	public int nPassageiros, vMax;
-	public boolean ligado;
 	
-	void ligar()
-	{
-		ligado = true;
+	private String modelo;
+	private int nPassageiros, vMax;
+	private boolean ligado;
+	
+	public Aviao(String modelo, int nPassageiros, int vMax) {
+		this.setModelo(modelo);
+		this.setnPassageiros(nPassageiros);
+		this.setvMax(vMax);
+		desligar();
+		
 	}
-	void desligar()
-	{
-		ligado = false;
+	public String getModelo() {
+		return modelo;
 	}
-	void dados()
-	{
-		if(ligado == true)
-		{
-			estado = ("Ligado");
-		}
-		else
-			estado = ("Delisgado");
-		System.out.println("O avião "+modelo+" tem uma velocidade maxima de "+vMax+" km(h), com uma capacidade de "+nPassageiros+
-				" passageiros. Atualmente esta: "+estado);
-	}	
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public int getnPassageiros() {
+		return nPassageiros;
+	}
+	public void setnPassageiros(int nPassageiros) {
+		this.nPassageiros = nPassageiros;
+	}
+	public int getvMax() {
+		return vMax;
+	}
+	public void setvMax(int vMax) {
+		this.vMax = vMax;
+	}
+	public boolean getLigado() {
+		return ligado;
+	}
+	public void setLigado(boolean ligado) {
+		this.ligado = ligado;
+	}
+	void ligar() {
+		this.setLigado(true);
+	}
+	void desligar() {
+		this.setLigado(false);
+	}
+	void dados() {
+		System.out.println("Avião: "+this.getModelo());
+		System.out.println("Capacidade maxima: "+this.getnPassageiros()+" passageiros");
+		System.out.println("Velocidade maxima: "+this.getvMax()+" KM/h");
+		System.out.println("\n---------------------------------------------------\n");
+	}
+	
+	
 }
