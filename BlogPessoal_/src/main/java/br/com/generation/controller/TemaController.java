@@ -1,4 +1,4 @@
-package com.example.blogpessoal.controller;
+package br.com.generation.controller;
 
 import java.util.List;
 
@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.blogpessoal.model.Tema;
-import com.example.blogpessoal.repository.TemaRepository;
+import br.com.generation.model.Tema;
+import br.com.generation.repository.TemaRepository;
+
 
 @RestController
 @RequestMapping("/temas")
@@ -36,8 +37,9 @@ public class TemaController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Tema> getById(@PathVariable long id) {
-		return temaRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
-				.orElse(ResponseEntity.notFound().build());
+		return temaRepository.findById(id)
+			.map(resposta -> ResponseEntity.ok(resposta))
+			.orElse(ResponseEntity.notFound().build());
 	}
 
 	@GetMapping("/descricao/{descricao}")
@@ -52,20 +54,24 @@ public class TemaController {
 
 	@PutMapping
 	public ResponseEntity<Tema> putTema(@Valid @RequestBody Tema tema) {
-
-		return temaRepository.findById(tema.getId()).map(resposta -> {
-			return ResponseEntity.ok().body(temaRepository.save(tema));
-		}).orElse(ResponseEntity.notFound().build());
+					
+		return temaRepository.findById(tema.getId())
+				.map(resposta -> {
+					return ResponseEntity.ok().body(temaRepository.save(tema));
+				})
+				.orElse(ResponseEntity.notFound().build());
 
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deletePostagem(@PathVariable long id) {
-
-		return temaRepository.findById(id).map(resposta -> {
-			temaRepository.deleteById(id);
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}).orElse(ResponseEntity.notFound().build());
+		
+		return temaRepository.findById(id)
+				.map(resposta -> {
+					temaRepository.deleteById(id);
+					return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+				})
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 }
